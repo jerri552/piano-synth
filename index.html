@@ -1,0 +1,91 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#3a211d">
+  <meta name="description" content="A warm, browser-native virtual piano synthesizer with Web Audio synthesis.">
+  <link rel="icon" type="image/png" href="/manus-storage/async-images/WxJx4ENRZ1EbFjBzWMm9TX/image-1.webp">
+  <link rel="stylesheet" href="styles.css">
+  <title>Virtual Piano Synthesizer</title>
+</head>
+<body>
+  <main class="instrument-shell">
+    <header class="instrument-header">
+      <div class="brand-lockup">
+        <div class="brand-mark" aria-hidden="true"><span></span><span></span><i></i></div>
+        <div>
+          <p class="eyebrow">BROWSER INSTRUMENT / 01</p>
+          <h1>Virtual Piano <em>Synthesizer</em></h1>
+        </div>
+      </div>
+      <div class="status" aria-live="polite">
+        <span class="status-dot" id="status-dot"></span>
+        <span id="status-text">Ready to play</span>
+      </div>
+    </header>
+
+    <section class="console" aria-labelledby="console-heading">
+      <div class="section-heading">
+        <div>
+          <p class="eyebrow">CONTROL DECK</p>
+          <h2 id="console-heading">Shape your sound</h2>
+        </div>
+        <p class="hint">Choose a voice. Play a phrase.</p>
+      </div>
+      <div class="control-grid">
+        <label class="control-block waveform-control">
+          <span class="control-label">Oscillator voice</span>
+          <span class="select-wrap">
+            <select id="waveform" aria-label="Synthesizer waveform">
+              <option value="sine">Sine</option>
+              <option value="square">Square</option>
+              <option value="sawtooth">Sawtooth</option>
+              <option value="triangle">Triangle</option>
+            </select>
+          </span>
+        </label>
+        <label class="control-block volume-control">
+          <span class="control-label"><span>Master volume</span><output id="volume-value" for="volume">72%</output></span>
+          <input id="volume" type="range" min="0" max="100" value="72" step="1" aria-label="Master volume">
+        </label>
+        <div class="control-block tuning-block" aria-label="Synthesizer tuning">
+          <span class="control-label">Tuning reference</span>
+          <strong>A4 <span>440 Hz</span></strong>
+        </div>
+      </div>
+    </section>
+
+    <section class="keyboard-section" aria-labelledby="keyboard-heading">
+      <div class="keyboard-heading">
+        <div>
+          <p class="eyebrow">PLAYABLE RANGE</p>
+          <h2 id="keyboard-heading">C4 <span>—</span> C6</h2>
+        </div>
+        <div class="key-guide" aria-label="Computer keyboard guide">
+          <span><kbd>A</kbd><small>white keys</small></span>
+          <span><kbd>W</kbd><small>black keys</small></span>
+          <span class="guide-note">Click, touch, or type to play</span>
+        </div>
+      </div>
+      <div class="keyboard-frame">
+        <div class="piano" id="piano" role="group" aria-label="Two octave virtual piano keyboard">
+          <div class="white-keys" id="white-keys"></div>
+          <div class="black-keys" id="black-keys"></div>
+        </div>
+      </div>
+      <div class="keyboard-footer">
+        <span>15 white keys / 10 black keys</span>
+        <span class="footer-rule"></span>
+        <span id="active-notes">No active notes</span>
+      </div>
+    </section>
+
+    <footer class="instrument-footer">
+      <span>ANALOG CONSOLE SERIES</span>
+      <span>WEB AUDIO ENGINE · v1.0</span>
+    </footer>
+  </main>
+  <script src="app.js" defer></script>
+</body>
+</html>
